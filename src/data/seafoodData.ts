@@ -1,0 +1,213 @@
+import { SeafoodItem, PromoCoupon } from '../types';
+import { SHOP_LOCATION } from '../utils/locationUtils';
+
+export const SEAFOOD_ITEMS: SeafoodItem[] = [
+  {
+    id: 'kaokao-sauce-1oz',
+    name: 'น้ำจิ้มซีฟู้ดกล่อง 1 ออนซ์',
+    nameEn: 'Signature Seafood Dipping Sauce (1 oz cup)',
+    category: 'sauce',
+    price: 10,
+    imageUrl: '/images/products/dish-sauce-1oz.jpg',
+    description: 'น้ำจิ้มรสเด็ดร้านกุ้งเผา 🌶️🔥 🍋 ใช้ มะนาวแท้ คั้นสด หอมมะนาวแบบเต็ม ๆ เปรี้ยวจี๊ด 🌶️ เผ็ดแซ่บ 🌶️ นัวกลมกล่อม จิ้มกับกุ้งเผาร้อน ๆ คือเข้ากันสุด ๆ 🦐 💚 เปรี้ยวสะใจ กินแล้วหยุดจิ้มไม่ได้! 😋 🔥',
+    freshnessSource: 'มะนาวแป้นสดแท้คั้นสดวันต่อวัน พริกขี้หนูสวนคัดเกรด',
+    prepTimeMinutes: 5,
+    badge: 'น้ำจิ้มมะนาวแท้ 🌶️ ฿10',
+    rating: 4.9,
+    reviewCount: 380,
+    isPopular: true,
+    inStock: true,
+    weightOptions: [
+      { id: 'w-1oz', name: '1 ถ้วย (ขนาด 1 ออนซ์)', priceModifier: 0, isDefault: true },
+      { id: 'w-3cups', name: 'ชุด 3 ถ้วย (3 ออนซ์)', priceModifier: 20 },
+      { id: 'w-5cups', name: 'ชุด 5 ถ้วยสุดคุ้ม (5 ออนซ์)', priceModifier: 40 },
+    ],
+    cookingOptions: [
+      { id: 'c-chilled', name: 'แช่เย็นสดใหม่พร้อมทานทันที', description: 'เปิดฝาพร้อมจิ้ม เปรี้ยวแซ่บจี๊ดจ๊าด', priceExtra: 0 },
+    ],
+    sauceOptions: [
+      { id: 's-original', name: 'สูตรออริจินัลพริกสวนมะนาวแป้นแท้ (แนะนำ)', description: 'เปรี้ยวจี๊ด เผ็ดแซ่บ นัวกลมกล่อม' },
+      { id: 's-extra-spicy', name: 'สูตรเผ็ดแซ่บพิเศษคูณสอง 🔥', description: 'สำหรับสายเผ็ดจัดจ้าน' },
+    ],
+    availableAddOns: [],
+  },
+  {
+    id: 'kaokao-boiled-shrimp-1kg',
+    name: 'กุ้งขาวลวกจิ้มเนื้อหวาน 1กิโลกรัม',
+    nameEn: 'Boiled White Shrimp with Sweet Flesh (1 KG)',
+    category: 'shrimp',
+    price: 798,
+    imageUrl: '/images/products/dish-boiled-shrimp-1kg.jpg',
+    description: '🦐 กุ้งขาวลวกจิ้ม เนื้อหวานเด้ง สดใหม่ ลวกกำลังดี เสิร์ฟพร้อมน้ำจิ้มซีฟู้ดรสแซ่บ 🦐✨ กุ้งตัวโต คัดไซซ์มาให้แบบจุก ๆ อร่อยเต็มคำ จะสั่งกินเล่น หรือจัดเป็นมื้อใหญ่ก็ฟิน!',
+    freshnessSource: 'กุ้งขาวสดเป็นๆ เนื้อหวานเด้ง คัดไซซ์พิเศษ 1 กิโลกรัมเต็ม',
+    prepTimeMinutes: 15,
+    badge: 'เนื้อหวานเด้ง 1 กก. 🦐 ฿798',
+    rating: 4.9,
+    reviewCount: 620,
+    isPopular: true,
+    inStock: true,
+    weightOptions: [
+      { id: 'w-1kg', name: 'ขนาด 1 กิโลกรัมเต็ม', priceModifier: 0, isDefault: true },
+    ],
+    cookingOptions: [
+      { id: 'c-boiled-tender', name: 'ลวกสะดุ้งกำลังดี (เนื้อเด้งหวานฉ่ำ)', description: 'ลวกเวลาพอเหมาะ คงความหวานธรรมชาติของเนื้อกุ้ง', priceExtra: 0 },
+      { id: 'c-boiled-well', name: 'ลวกสุก 100% เนื้อแน่นหนึบ', description: 'สุกทั่วถึง เนื้อกรุบแน่นฟินเต็มคำ', priceExtra: 0 },
+    ],
+    sauceOptions: [
+      { id: 's-lime-green', name: 'น้ำจิ้มซีฟู้ดมะนาวแป้นสดแท้ (แถมฟรีในชุด)', description: 'สูตรลับร้านกุ้งเผาเผา 烤烤 เปรี้ยวจี๊ดเผ็ดแซ่บ' },
+      { id: 's-extra-sauce', name: 'รับน้ำจิ้มซีฟู้ดเพิ่ม (+1 กล่อง)', description: 'เพิ่มน้ำจิ้มซีฟู้ดกล่อง 1 ออนซ์', isExtraPrice: 10 },
+    ],
+    availableAddOns: [
+      { id: 'a-sauce-extra', name: 'น้ำจิ้มซีฟู้ดกล่อง 1 ออนซ์เพิ่ม', price: 10 },
+    ],
+  },
+  {
+    id: 'kaokao-boiled-shrimp-halfkg',
+    name: 'กุ้งขาวลวกจิ้มเนื้อหวานครึ่งกิโลกรัม',
+    nameEn: 'Boiled White Shrimp with Sweet Flesh (0.5 KG)',
+    category: 'shrimp',
+    price: 399,
+    imageUrl: '/images/products/dish-boiled-shrimp-halfkg.jpg',
+    description: '🦐 กุ้งขาวลวกจิ้ม เนื้อหวานเด้ง สดใหม่ ลวกกำลังดี เสิร์ฟพร้อมน้ำจิ้มซีฟู้ดรสแซ่บ 🦐✨ กุ้งตัวโต คัดไซซ์มาให้แบบจุก ๆ อร่อยเต็มคำ จะสั่งกินเล่น หรือจัดเป็นมื้อใหญ่ก็ฟิน!',
+    freshnessSource: 'กุ้งขาวสดเป็นๆ คัดไซซ์พิเศษ ครึ่งกิโลกรัม',
+    prepTimeMinutes: 15,
+    badge: 'เนื้อหวานเด้ง ครึ่ง กก. ✨ ฿399',
+    rating: 4.8,
+    reviewCount: 450,
+    isPopular: false,
+    inStock: true,
+    weightOptions: [
+      { id: 'w-halfkg', name: 'ขนาดครึ่งกิโลกรัม (500 กรัม)', priceModifier: 0, isDefault: true },
+    ],
+    cookingOptions: [
+      { id: 'c-boiled-tender', name: 'ลวกสะดุ้งกำลังดี (เนื้อเด้งหวานฉ่ำ)', description: 'ลวกเวลาพอเหมาะ คงความหวานธรรมชาติของเนื้อกุ้ง', priceExtra: 0 },
+      { id: 'c-boiled-well', name: 'ลวกสุก 100% เนื้อแน่นหนึบ', description: 'สุกทั่วถึง เนื้อกรุบแน่นฟินเต็มคำ', priceExtra: 0 },
+    ],
+    sauceOptions: [
+      { id: 's-lime-green', name: 'น้ำจิ้มซีฟู้ดมะนาวแป้นสดแท้ (แถมฟรีในชุด)', description: 'สูตรลับร้านกุ้งเผาเผา 烤烤 เปรี้ยวจี๊ดเผ็ดแซ่บ' },
+      { id: 's-extra-sauce', name: 'รับน้ำจิ้มซีฟู้ดเพิ่ม (+1 กล่อง)', description: 'เพิ่มน้ำจิ้มซีฟู้ดกล่อง 1 ออนซ์', isExtraPrice: 10 },
+    ],
+    availableAddOns: [
+      { id: 'a-sauce-extra', name: 'น้ำจิ้มซีฟู้ดกล่อง 1 ออนซ์เพิ่ม', price: 10 },
+    ],
+  },
+  {
+    id: 'kaokao-grilled-fat-1kg',
+    name: 'หัวมันแก้วจัมโบ้ 12-15ตัวโล (หัวมันแก้วกู๊กกกตัว)',
+    nameEn: 'Jumbo Charcoal Grilled Prawns with Crystal Head Fat 12-15 pcs (1 KG)',
+    category: 'shrimp',
+    price: 798,
+    imageUrl: '/images/products/dish-grilled-fat-1kg.jpg',
+    description: 'กุ้งเผาหัวมันแก้วกู๊กกกตัวกับน้ำจิ้มสุดแซ่บซีสสสส 🔥 🦞 🌶️ ย่างด้วยดอกเกลือแท้ เพื่อคงรสหวานธรรมชาติของกุ้ง 🧂',
+    freshnessSource: 'กุ้งเผาหัวมันแก้วกู๊กกกตัว 100% ย่างเตาถ่านโรยดอกเกลือแท้',
+    prepTimeMinutes: 20,
+    badge: 'หัวมันแก้วทุกกกตัว 1 กก. 🔥 ฿798',
+    rating: 5.0,
+    reviewCount: 1980,
+    isPopular: true,
+    inStock: true,
+    weightOptions: [
+      { id: 'w-1kg', name: 'ไซซ์ 12-15 ตัวโล (ชุด 1 กิโลกรัมเต็ม)', priceModifier: 0, isDefault: true },
+    ],
+    cookingOptions: [
+      { id: 'c-charcoal-salt', name: 'ย่างเตาถ่านโรยดอกเกลือแท้ (คงรสหวานธรรมชาติ)', description: 'ย่างไฟเตาถ่านกะลาคัดพิเศษ หัวมันแก้วเยิ้มฉ่ำ หวานเนื้อกุ้งธรรมชาติ', priceExtra: 0 },
+      { id: 'c-charcoal-well', name: 'ย่างเตาถ่านสุกเกรียมหอมควันพิเศษ', description: 'เปลือกแห้งร่อน หอมกลิ่นควันถ่านชัดเจน', priceExtra: 0 },
+    ],
+    sauceOptions: [
+      { id: 's-lime-green', name: 'น้ำจิ้มซีฟู้ดสุดแซ่บซีสสสส มะนาวแท้ (แถมฟรีในชุด)', description: 'เปรี้ยวจี๊ด เผ็ดแซ่บ นัวกลมกล่อม สูตรเด็ด 烤烤' },
+      { id: 's-extra-bottle', name: 'เพิ่มน้ำจิ้มซีฟู้ดกล่อง 1 ออนซ์ (+฿10)', description: 'เพิ่มน้ำจิ้มอีก 1 ถ้วย', isExtraPrice: 10 },
+    ],
+    availableAddOns: [
+      { id: 'a-sauce-extra', name: 'น้ำจิ้มซีฟู้ดกล่อง 1 ออนซ์เพิ่ม', price: 10 },
+    ],
+  },
+  {
+    id: 'kaokao-grilled-fat-halfkg',
+    name: 'หัวมันแก้วจัมโบ้ size 12-15ตัวโล (ครึ่งกิโลจะได้6-7ตัว) (หัวมันแก้วกู๊กกกตัว)',
+    nameEn: 'Jumbo Charcoal Grilled Prawns with Crystal Head Fat 6-7 pcs (0.5 KG)',
+    category: 'shrimp',
+    price: 399,
+    imageUrl: '/images/products/dish-grilled-fat-halfkg.jpg',
+    description: 'กุ้งเผาหัวมันแก้วกู๊กกกตัวกับน้ำจิ้มสุดแซ่บซีสสสส 🔥 🦞 🌶️ ย่างด้วยดอกเกลือแท้ เพื่อคงรสหวานธรรมชาติของกุ้ง 🧂',
+    freshnessSource: 'กุ้งเผาหัวมันแก้วกู๊กกกตัว 100% ย่างเตาถ่าน ครึ่งกิโลกรัม',
+    prepTimeMinutes: 20,
+    badge: 'หัวมันแก้วทุกกกตัว 6-7 ตัว 🦞 ฿399',
+    rating: 4.9,
+    reviewCount: 1420,
+    isPopular: true,
+    inStock: true,
+    weightOptions: [
+      { id: 'w-halfkg', name: 'ครึ่งกิโลกรัม (ได้ 6-7 ตัว)', priceModifier: 0, isDefault: true },
+    ],
+    cookingOptions: [
+      { id: 'c-charcoal-salt', name: 'ย่างเตาถ่านโรยดอกเกลือแท้ (คงรสหวานธรรมชาติ)', description: 'ย่างไฟเตาถ่านกะลาคัดพิเศษ หัวมันแก้วเยิ้มฉ่ำ หวานเนื้อกุ้งธรรมชาติ', priceExtra: 0 },
+      { id: 'c-charcoal-well', name: 'ย่างเตาถ่านสุกเกรียมหอมควันพิเศษ', description: 'เปลือกแห้งร่อน หอมกลิ่นควันถ่านชัดเจน', priceExtra: 0 },
+    ],
+    sauceOptions: [
+      { id: 's-lime-green', name: 'น้ำจิ้มซีฟู้ดสุดแซ่บซีสสสส มะนาวแท้ (แถมฟรีในชุด)', description: 'เปรี้ยวจี๊ด เผ็ดแซ่บ นัวกลมกล่อม สูตรเด็ด 烤烤' },
+      { id: 's-extra-bottle', name: 'เพิ่มน้ำจิ้มซีฟู้ดกล่อง 1 ออนซ์ (+฿10)', description: 'เพิ่มน้ำจิ้มอีก 1 ถ้วย', isExtraPrice: 10 },
+    ],
+    availableAddOns: [
+      { id: 'a-sauce-extra', name: 'น้ำจิ้มซีฟู้ดกล่อง 1 ออนซ์เพิ่ม', price: 10 },
+    ],
+  },
+];
+
+export const CATEGORIES = [
+  { id: 'all', name: 'ทั้งหมด', icon: 'Sparkles', count: 5 },
+  { id: 'shrimp', name: 'กุ้งเผาเผา & กุ้งลวก', icon: 'Flame', count: 4 },
+  { id: 'sauce', name: 'น้ำจิ้มซีฟู้ด', icon: 'ShieldCheck', count: 1 },
+];
+
+export const PROMO_COUPONS: PromoCoupon[] = [
+  {
+    code: 'KAOKAO50',
+    title: 'ลดทันที 50 บาท',
+    description: 'เมื่อสั่งกุ้งเผาเผา 烤烤 ครบ 400 บาทขึ้นไป',
+    discountAmount: 50,
+    minSpend: 400,
+    badge: 'โค้ด 烤烤 💥',
+  },
+  {
+    code: 'FREESHIP',
+    title: 'ฟรีค่าจัดส่ง (ลด 35 บาท)',
+    description: 'ลดค่าส่งสูงสุด 35 บาท ไม่มีขั้นต่ำ ส่งด่วนเตาถ่าน',
+    discountAmount: 35,
+    minSpend: 0,
+    badge: 'ส่งฟรี 🛵',
+  },
+  {
+    code: 'SEAFOOD100',
+    title: 'ลดกระหน่ำ 100 บาท',
+    description: 'สำหรับออเดอร์ยอด 1,000 บาทขึ้นไป',
+    discountAmount: 100,
+    minSpend: 1000,
+    badge: 'เซ็ตใหญ่คุ้ม 🦞',
+  },
+];
+
+export const MARKET_INFO = {
+  name: 'กุ้งเผาเผา 烤烤 (Kǎo Kǎo) 🔥🦞🦐 Seafood',
+  nameEn: 'Kao Kao Grilled Seafood Restaurant',
+  slogan: 'กุ้งเผาหัวมันแก้วกู๊กกกตัว ย่างด้วยดอกเกลือแท้ เตาถ่านสดใหม่ น้ำจิ้มสุดแซ่บซีสสสส',
+  address: SHOP_LOCATION.address,
+  phone: '080-382-4909, 096-328-6005',
+  phones: SHOP_LOCATION.phones,
+  lat: SHOP_LOCATION.lat,
+  lng: SHOP_LOCATION.lng,
+  subdistrict: SHOP_LOCATION.subdistrict,
+  district: SHOP_LOCATION.district,
+  province: SHOP_LOCATION.province,
+  postalCode: SHOP_LOCATION.postalCode,
+  wongnaiUrl: SHOP_LOCATION.wongnaiUrl,
+  rating: 4.9,
+  reviews: '4,850+ รีวิว',
+  distanceKm: 0.3,
+  estimatedTimeMin: '15-25 นาที',
+  baseDeliveryFee: 20,
+  openStatus: 'เปิดให้บริการ (เตาถ่านพร้อมส่งด่วน)',
+  announcement: '🔥 กุ้งเผาเผา 烤烤 (Kǎo Kǎo) พฤกษาวิลเลจ 1 ลำลูกกา ปทุมธานี จัดส่งความสดถึงบ้าน! หัวมันแก้วทุกกกตัว ย่างด้วยดอกเกลือแท้ น้ำจิ้มซีฟู้ดมะนาวแท้ 100%!',
+  features: ['หัวมันแก้วกู๊กกกตัว 100%', 'ย่างด้วยดอกเกลือแท้เตาถ่าน', 'พฤกษาวิลเลจ 1 ลำลูกกา ปทุมธานี', 'ราคาตรงตาม Wongnai'],
+  logoUrl: '/images/products/kaokao-logo.jpg',
+  bannerUrl: '/images/products/kaokao-banner.jpg',
+};
